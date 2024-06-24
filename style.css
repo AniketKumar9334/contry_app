@@ -1,0 +1,91 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+    border: none;
+}
+body{
+    background-color: aliceblue;
+}
+.container{
+    width: 90%;
+    margin: auto;
+    margin-top: 2rem;
+    text-align: center
+}
+.container .filter{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    font-size: 1.5rem;
+
+}
+.container .filter select{
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.countries{
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+}
+.countries .country{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: white; */
+    color: black;
+    padding: 1rem 0;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    
+}
+
+.container .loading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    display: none;
+  }
+  .container .loader {
+    
+  
+    --b: 10px; /* border thickness */
+    --n: 10; /* number of dashes*/
+    --g: 10deg; /* gap  between dashes*/
+    --c: #f89e00; /* the color */
+  
+    width: 100px; /* size */
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 1px; /* get rid of bad outlines */
+    background: conic-gradient(#0000, var(--c)) content-box;
+    --_m: /* we use +/-1deg between colors to avoid jagged edges */ repeating-conic-gradient(
+        #0000 0deg,
+        #000 1deg calc(360deg / var(--n) - var(--g) - 1deg),
+        #0000 calc(360deg / var(--n) - var(--g)) calc(360deg / var(--n))
+      ),
+      radial-gradient(
+        farthest-side,
+        #0000 calc(98% - var(--b)),
+        #000 calc(100% - var(--b))
+      );
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+  
+    animation: load 1s infinite steps(var(--n));
+  }
+  @keyframes load {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+  
